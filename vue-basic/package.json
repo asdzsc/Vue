@@ -1,0 +1,12 @@
+{
+    "name": "01-get-started",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "browser-sync start -s -f **/* --directory --watch"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}

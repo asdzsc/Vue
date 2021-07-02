@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue 初探</title>
+</head>
+
+<body>
+    <div id="root">
+        <input v-model="task" type="text" v-on:keyup.enter="handleKeyup">
+        <ul>
+            <li v-for="(item,index) in list">{{item}} <button v-on:click="handleDel(index)">x</button></li>
+        </ul>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#root",
+        data: {
+            task: "",
+            list: ["task"]
+        },
+        methods: {
+            handleKeyup() {
+                this.list.push(this.task)
+                this.task = ''
+            },
+            handleDel(index) {
+                this.list.splice(index, 1)
+            }
+        },
+    })
+</script>
+
+
+</html>
