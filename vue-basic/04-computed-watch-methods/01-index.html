@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>computed,methods,watch </title>
+</head>
+
+<body>
+    <div id="root">
+        {{reverse}} {{doReverse()}} {{num}} {{content}}
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#root",
+        data: {
+            msg: "hello",
+            num: 10,
+            obj: {
+                x: {
+                    y: 100
+                }
+            },
+            bool: true
+        },
+        // computed中的属性是函数 
+        computed: {
+            reverse() {
+                // 基于依赖缓存  当依赖的值(msg)发生改变的时候执行 如果依赖的值跟之前的值一样不执行
+                // console.log('computed run...');
+                this.foo()
+                return this.msg.split('').reverse().join('')
+                    // 不在计算属性里具有副作用的计算
+                    // return await new Promise((resolve, rejct) => {
+                    //   setTimeout(() => {
+                    //     resolve(this.title.split('').reverse().join(''))
+                    //   }, 2000)
+                    // })
+            }
+        },
+        // 可以进行一些公共方法的操作
+        methods: {
+            doReverse() {
+                // 不基于依赖缓存(只要data数据更新就会执行)
+                // console.log('methods run...');
+                return this.msg.split('').reverse().join('')
+            },
+            foo() {
+                // console.log('0');
+            },
+            watchMsg(newVal, oldVal) {
+                console.log(newVal, oldVal);
+                // console.log(newVal, oldVal);
+                // 异步操作
+                // ajax 
+                // setTimeout(() => {
+                //     this.msg = 'abc'
+                // }, 2000)
+            },
+            handle1() {
+                console.log('handle1')
+            }
+        },
+        // 监听响应式的数据 (data中的数据)
+        watch: {
+            // 1.监听某个数据
+            // msg(newVal, oldVal) {
+            //     console.log(newVal, oldVal);
+            //     // console.log(newVal, oldVal);
+            //     // 异步操作
+            //     // ajax 
+            //     // setTimeout(() => {
+            //     //     this.msg = 'abc'
+            //     // }, 2000)
+            // }
+            content() {
+                console.log('content changed...');
+            },
+            // 2.监听方法名
+            msg: {
+                handler: 'watchMsg',
+                immediate: true //该回调将会在侦听开始之后被立即调用
+            },
+            obj: {
+                handler(newVal) {
+                    console.log(newVal.x.y)
+                },
+                // immediate: true //该回调将会在侦听开始之后被立即调用
+                deep: true //该回调会在任何被侦听的对象的 property 改变时被调用，不论其被嵌套多深
+            },
+            // 传入回调数组，它们会被逐一调用
+            bool: [
+                'handle1',
+                function handle2(val, oldVal) {
+                    console.log('handle2')
+                }, {
+                    handler: function handle3(val, oldVal) {
+                        console.log('handle3')
+                    },
+                }
+            ],
+            'obj.x' (val) {
+                console.log(val.y)
+            }
+        },
+        beforeCreate() {
+            this.content = 'balabala...'
+        },
+        mounted() {
+            this.msg = 'abc'
+            this.content = 'cont'
+            this.num = 100
+            this.obj.x.y = 300
+            this.bool = false
+            this.obj.x = {
+                y: 400
+            }
+        },
+    })
+</script>
+
+
+</html>
