@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history api</title>
+</head>
+
+<body>
+    <ul>
+        <li>电影</li>
+        <li>影院</li>
+    </ul>
+    <div id="content">
+    </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script>
+    const routes = [{
+        path: '/movie',
+        component: '<h1>comp1</h1>'
+    }, {
+        path: '/theater',
+        component: '<h1>comp2</h1>'
+    }]
+
+    function renderHtml(component) {
+        $("#content").html(component)
+    }
+
+    $('li').on('click', function() {
+
+        let {
+            path,
+            component
+        } = routes[$(this).index()]
+
+        history.pushState({
+            id: 0
+        }, 'movie', path)
+
+        renderHtml(component)
+    })
+
+    $(window).on('load', function() {
+        history.pushState(null, 'movie', '/movie')
+        renderHtml(routes[0].component)
+    })
+
+    $(window).on('popstate', function() {
+        // console.log('0');
+        let pathName = location.pathname
+            // console.log(pathName);
+        let {
+            component
+        } = routes.find(v => v.path == pathName)
+
+        renderHtml(component)
+    })
+</script>
+
+</html>
