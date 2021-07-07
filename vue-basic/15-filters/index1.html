@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function XReplace(str, length) {
+        var reg = new RegExp("(\\S{" + length + "})", "g");
+        return str.replace(reg, "$1,");
+    }
+    alert(XReplace("100000000", 3))
+</script>
+
+</html>
