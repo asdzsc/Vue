@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>history api</title>
+    <style>
+        .active {
+            font-size: 18px;
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,6 +22,7 @@
     </div>
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.js"></script>
 <script>
     const routes = [{
         path: '/movie',
@@ -25,12 +32,12 @@
         component: '<h1>comp2</h1>'
     }]
 
-    function renderHtml(component) {
+    function renderHtml(component, index) {
         $("#content").html(component)
+        $("li").eq(index).addClass('active').siblings().removeClass('active')
     }
 
     $('li').on('click', function() {
-
         let {
             path,
             component
@@ -40,23 +47,24 @@
             id: 0
         }, 'movie', path)
 
-        renderHtml(component)
+        renderHtml(component, $(this).index())
     })
 
-    $(window).on('load', function() {
+    $(window).on('load', () => {
         history.pushState(null, 'movie', '/movie')
-        renderHtml(routes[0].component)
+        renderHtml(routes[0].component, 0)
     })
 
-    $(window).on('popstate', function() {
+    $(window).on('popstate', () => {
         // console.log('0');
         let pathName = location.pathname
             // console.log(pathName);
         let {
             component
-        } = routes.find(v => v.path == pathName)
-
-        renderHtml(component)
+        } = routes.find(v => v.path === pathName)
+        let index = _.findIndex(routes, (v) => v.path === pathName)
+        console.log(index);
+        renderHtml(component, index)
     })
 </script>
 
