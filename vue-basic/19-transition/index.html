@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue animate</title>
+    <link rel="stylesheet" href="./animate.css" />
+    <style>
+        /* .fade-enter-to {
+            opacity: 1;
+        }
+        
+        .fade-leave-to,
+        .fade-enter {
+            opacity: 0;
+        }
+        
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: all 1s ease-in
+        }
+        
+        .bounce-enter-active {
+            animation: bounce-in .5s;
+        }
+        
+        .bounce-leave-active {
+            animation: bounce-in .5s reverse;
+        }
+        
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <!-- <transition name="fade"> -->
+        <transition enter-active-class="animate__animated  animate__bounceInDown" leave-active-class="animate__animated  animate__bounceInUp">
+            <h1 v-if="show">hello</h1>
+        </transition>
+        <h2 class="animate__animated animate__bounceInUp">哈哈哈哈</h2>
+        <button @click="show=!show">change</button>
+    </div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#root",
+        data: {
+            show: true
+        }
+    })
+</script>
+
+
+</html>
