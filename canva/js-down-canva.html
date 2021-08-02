@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canva Button</title>
+    <script src="https://sdk.canva.cn/designbutton/v2/api.js"></script>
+</head>
+
+<body>
+    <button>Create design</button>
+    <script type="text/javascript">
+        (async() => {
+            if (!window.Canva || !window.Canva.DesignButton) {
+                return;
+            }
+
+            const api = await window.Canva.DesignButton.initialize({
+                apiKey: "API KEY GOES HERE",
+            });
+
+            const button = document.querySelector("button");
+
+            button.onclick = () => {
+                api.createDesign({
+                    design: {
+                        type: "Poster",
+                    },
+                    onDesignPublish: (opts) => {
+                        // Download the user's design
+                        window.open(opts.exportUrl, "_blank");
+                    },
+                });
+            };
+        })();
+    </script>
+</body>
+
+</html>

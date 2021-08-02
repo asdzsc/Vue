@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canva Button</title>
+</head>
+
+<body>
+    <button data-design-type="Poster" data-api-key="API KEY GOES HERE" class="canva-design-button" style="display: none;">Design on Canva</button
+    >
+    <script>
+      (function (c, a, n) {
+        var w = c.createElement(a),
+          s = c.getElementsByTagName(a)[0];
+        w.src = n;
+        s.parentNode.insertBefore(w, s);
+      })(document, "script", "https://sdk.canva.cn/designbutton/v2/api.js");
+    </script>
+  </body>
+</html>

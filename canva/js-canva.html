@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canva Button</title>
+    <script src="https://sdk.canva.cn/designbutton/v2/api.js"></script>
+</head>
+<style>
+    .box {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    .box::before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        border: 1px solid red;
+        transform-origin: 0 0;
+        transform: scale(0.5);
+    }
+</style>
+
+<body>
+    <button>Create a new design</button>
+    <div class="box">
+
+    </div>
+    <script type="text/javascript">
+        (async() => {
+            if (!window.Canva || !window.Canva.DesignButton) {
+                return;
+            }
+
+            const api = await window.Canva.DesignButton.initialize({
+                apiKey: "API KEY GOES HERE",
+            });
+
+            const button = document.querySelector("button");
+
+            button.onclick = () => {
+                api.createDesign({
+                    design: {
+                        type: "Poster",
+                    },
+                });
+            };
+        })();
+    </script>
+</body>
+
+</html>
