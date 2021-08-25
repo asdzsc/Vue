@@ -74,7 +74,7 @@
             computed: {
                 totalPrice() {
                     return this.carts.reduce((sum, value) => {
-                        // console.log(value);
+                        console.log(value);
                         sum += value.price * value.quantity
                             // console.log(sum);
                         return sum

@@ -11,6 +11,11 @@
 <body>
     <div id="root">
         <table value="abc">
+            <!-- 
+                这个自定义组件 <blog-post-row> 会被作为无效的内容提升到外部，并导致最终渲染结果出错。
+                幸好这个特殊的 is attribute 给了我们一个变通的办法：
+             -->
+            <!-- <my-tr></my-tr> -->
             <tr is="my-tr"></tr>
         </table>
     </div>

@@ -15,7 +15,7 @@
     </div>
 
     <script type="module">
-        import list from './list.js' ; import form from './form.js'; var vm = new Vue({ el: '#root', data: { urls: [] }, components: { 'c-list': list, 'c-form': form }, methods: { handleReceiveUrl(url) { this.urls.push(url) } } })
+        import list from './list.js' ; import form from './form.js'; var vm = new Vue( { el: '#root', data: { urls: [] }, components: { 'c-list': list, 'c-form': form }, methods: { handleReceiveUrl(url) { this.urls.push(url) } } })
     </script>
 </body>
 

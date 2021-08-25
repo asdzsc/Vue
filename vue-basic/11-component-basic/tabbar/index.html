@@ -58,7 +58,9 @@
 <body>
     <div id="root">
         <main>
+            <!-- <keep-alive> -->
             <component :is="componentId"></component>
+            <!-- </keep-alive> -->
         </main>
         <ul>
             <li v-for="(tab, index) in tabItems" @click="handleClick(index, tab.component)" :class="{active: curIndex === index}" :key="tab.component">
