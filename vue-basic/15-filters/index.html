@@ -32,8 +32,9 @@
                     return (value === 0 ? '男' : '女') + arg1
                 },
                 price(val, arg) {
-                    let reg = new RegExp("(\\S{" + 3 + "})", "g");
-                    return val.replace(reg, "$1,");
+                    // let reg = new RegExp("(\\S{" + 3 + "})", "g");
+                    // return val.replace(reg, "$1,");
+                    return val.replace(/(?=(?!\b)(\d{3})+$)/g, ',')
                 }
             },
             // computed: {
