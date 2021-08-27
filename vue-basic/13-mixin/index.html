@@ -14,8 +14,11 @@
         <button @click="handleClick2">root button</button>
     </div>
     <script src="./Header.js"></script>
+    <script src="./mixins-local.js"></script>
+    <!-- import mixins from './mixins-local.js' -->
     <script>
         var vm = new Vue({
+            mixins: [mixins],
             el: '#root',
             data: {
                 // x: { //merge 合并
@@ -23,6 +26,9 @@
                 //   b: 200
                 // }
             },
+            // components: {
+            // 'my-header': Header
+            // },
             methods: {
                 handleClick() {
                     console.log(1)

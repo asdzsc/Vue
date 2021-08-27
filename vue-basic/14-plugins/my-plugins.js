@@ -25,4 +25,4 @@ MyPlugin.install = (Vue, options) => {
     })
 }
 
-// export default MyPlugin
+export default MyPlugin
