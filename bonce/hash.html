@@ -17,6 +17,14 @@
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
 <script>
+    // let comp = [
+    //     '<h1>comp1</h1>',
+    //     '<h1>comp2</h1>',
+    // ]
+    // $("li").on('click', function() {
+    //     $('#content').html(comp[$(this).index()])
+    // })
+
     let comp = [{
         path: '/movie',
         component: '<h1>comp1</h1>'
@@ -33,14 +41,6 @@
         let hash = location.hash.slice(1)
         $('#content').html(comp.filter(v => v.path == hash)[0].component)
     })
-
-    // let comp = [
-    //     '<h1>comp1</h1>',
-    //     '<h1>comp2</h1>',
-    // ]
-    // $("li").on('click', function() {
-    //     $('#content').html(comp[$(this).index()])
-    // })
 </script>
 
 </html>
