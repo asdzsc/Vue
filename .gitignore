@@ -1,0 +1,9 @@
+/node_modules
+/.idea
+/src/config/default/setting.config.js
+/dist
+<<<<<<< HEAD
+/vue.config.js
+=======
+/vue.config
+>>>>>>> 64d2e22398c7d41e8640a1983d6d291d26bedf78
