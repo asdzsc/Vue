@@ -62,8 +62,9 @@
         let {
             component
         } = routes.find(v => v.path === pathName)
+            // console.log(component);
         let index = _.findIndex(routes, (v) => v.path === pathName)
-        console.log(index);
+            // console.log(index); 
         renderHtml(component, index)
     })
 </script>
