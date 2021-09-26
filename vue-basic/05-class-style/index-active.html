@@ -32,12 +32,12 @@
             },
             methods: {
                 handleClick(index) {
-                    // if (this.curIndex == index) {
-                    //     this.curIndex = null
-                    // } else {
-                    //     this.curIndex = index
-                    // }
-                    this.curIndex == index ? this.curIndex = null : this.curIndex = index
+                    if (this.curIndex == index) {
+                        this.curIndex = null
+                    } else {
+                        this.curIndex = index
+                    }
+                    // this.curIndex == index ? this.curIndex = null : this.curIndex = index
                 }
             },
         })
