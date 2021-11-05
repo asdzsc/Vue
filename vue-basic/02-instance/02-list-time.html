@@ -27,34 +27,34 @@
             },
 
             beforeCreate() {
-                // console.log(this) // yes
-                // console.log(this.title) // no
-                // console.log(document.querySelector('#root')) // maybe, 模板还没有渲染
-                // 应用场景： 给实例自定义内容
+                console.log(this) // yes
+                console.log(this.title) // no
+                    // console.log(document.querySelector('#root')) // maybe, 模板还没有渲染
+                    // 应用场景： 给实例自定义内容
                 this.x = 100 // yes
             },
 
             created() {
-                // console.log(this) // yes
-                // console.log(this.title) // yes
-                // console.log(document.querySelector('#root')) // maybe, 模板还没有渲染
-                // 应用场景：修改data的值
+                console.log(this) // yes
+                console.log(this.title) // yes
+                    // console.log(document.querySelector('#root')) // maybe, 模板还没有渲染
+                    // 应用场景：修改data的值
                 this.title = 'world'
             },
 
             beforeMount() {
-                // console.log(this) // yes
-                // console.log(this.title) // yes
-                // console.log(document.querySelector('#root')) // maybe, 模板还没有渲染
-                // 应用场景：修改data的值
-                // this.title = 'world'
+                console.log(this) // yes
+                console.log(this.title) // yes
+                    // console.log(document.querySelector('#root')) // maybe, 模板还没有渲染
+                    // 应用场景：修改data的值
+                    // this.title = 'world'
             },
 
             mounted() {
-                // console.log(this) // yes
-                // console.log(this.title) // yes
-                // console.log(document.querySelector('#root')) // yes
-                // 应用场景：一般在第一次页面渲染完毕后的工作都在这里完成
+                console.log(this) // yes
+                console.log(this.title) // yes
+                    // console.log(document.querySelector('#root')) // yes
+                    // 应用场景：一般在第一次页面渲染完毕后的工作都在这里完成
                 setTimeout(() => {
                     // this.title = 'hello'
                     this.$destroy()
