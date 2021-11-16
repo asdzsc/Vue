@@ -2,7 +2,9 @@ var arr = [1, [2, [
     [3, 4], 5
 ], 6]];
 
-console.log((arr + '').split(','));
+console.log(arr.flat(Infinity));
+
+// console.log((arr + '').split(','));
 
 // function unid(arr) {
 //     var arr1 = (arr + '').split(','); //将数组转字符串后再以逗号分隔转为数组
