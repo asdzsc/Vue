@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+</head>
+
+<body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script> -->
+    <!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+    <!-- built files will be auto injected -->
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://sdk.51job.com/js/jweixin-1.0.0.js"></script>
+    <script>
+        $.support.cors = true; // 
+        var ent = {};
+        ent.url = location.href.split('#')[0];
+        var imgsUrl = window.location.href;
+        var imgFxUrl = imgsUrl.substring(0, imgsUrl.lastIndexOf('/') + 1)
+        $.ajax({
+            url: "https://sdk.51job.com/mobile/post.php",
+            type: 'POST',
+            async: false,
+            data: ent,
+            success: function(data) {
+                var resoult = JSON.parse(data);
+                appid = resoult.appId;
+                timestamp = resoult.timestamp;
+                nonceStr = resoult.nonceStr;
+                signature = resoult.signature;
+            },
+        });
+        wx.config({
+            debug: false,
+            appId: appid,
+            timestamp: timestamp,
+            nonceStr: nonceStr,
+            signature: signature,
+            jsApiList: [
+                'onMenuShareAppMessage',
+                'onMenuShareTimeline',
+                'onMenuShareWeibo',
+                'onMenuShareQQ',
+                'onMenuShareQZone',
+            ]
+        });
+        wx.ready(function() {
+            wx.checkJsApi({
+                jsApiList: [
+                    'onMenuShareAppMessage',
+                    'onMenuShareTimeline',
+                    'onMenuShareWeibo',
+                    'onMenuShareQQ',
+                    'onMenuShareQZone',
+                ]
+            })
+            var shareData = {
+                title: '点亮“酩”天，“路”有你创',
+                desc: '2021路威酩轩香水化妆品校园创意大赛邀请函',
+                link: location.href,
+                shareUrl: location.href,
+                imgUrl: imgFxUrl + "./images/fx.jpg", //图片路径
+
+            };
+            wx.onMenuShareAppMessage(shareData);
+            wx.onMenuShareTimeline(shareData);
+            wx.onMenuShareWeibo(shareData);
+            wx.onMenuShareQQ(shareData);
+            wx.onMenuShareQZone(shareData);
+
+        });
+    </script> -->
+</body>
+
+</html>
